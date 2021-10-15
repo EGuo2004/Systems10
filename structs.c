@@ -2,18 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct hello {
+struct node {
   char * s;
   int i;
+  struct node *next;
 };
 
-void returnStruct(struct hello *f) {
+void returnStruct(struct node *f) {
   printf("%s costs %d\n", f->s, f->i);
 }
 
-struct hello * heapStruct(char *a, int b) {
+struct node * heapStruct(char *a, int b) {
 
-  struct hello *n = malloc(sizeof(struct hello));
+  struct node *n = malloc(sizeof(struct node));
 
   n->s = a;
   n->i = b;
@@ -21,10 +22,21 @@ struct hello * heapStruct(char *a, int b) {
   return n;
 }
 
+void print_list(struct node *) {
+
+}
+
+struct node * insert_front(struct node *, int) {
+}
+
+struct node * free_list(struct node *) {
+
+}
+
 int main() {
-  struct hello * hi1 = heapStruct("Tear of the Goddess", 400);
+  struct node * hi1 = heapStruct("Tear of the Goddess", 400);
   returnStruct(hi1);
 
-  struct hello * hi2 = heapStruct("Long Sword", 350);
+  struct node * hi2 = heapStruct("Long Sword", 350);
   returnStruct(hi2);
 }

@@ -1,3 +1,9 @@
-void returnStruct(struct hello *f);
+void returnStruct(struct node *f);
 
-struct hello * heapStruct(char *a, int b);
+struct node * heapStruct(char *a, int b);
+
+void print_list(struct node *);
+
+struct node * insert_front(struct node *, int);
+
+struct node * free_list(struct node *);
