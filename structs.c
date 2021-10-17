@@ -45,7 +45,7 @@ struct operator * free_list(struct operator *o) {
   }
   free(o->name);
   free(o->class);
-  free(o->cost);
+  free(o);
 }
 
 int main() {
