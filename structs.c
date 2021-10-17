@@ -2,41 +2,58 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct node {
-  char * s;
-  int i;
-  struct node *next;
+struct operator;
+
+struct operator {
+  char * name;
+  char * class;
+  int cost;
+  struct operator *next;
 };
 
-void returnStruct(struct node *f) {
-  printf("%s costs %d\n", f->s, f->i);
+void returnStruct(struct operator *o) {
+  printf("%s is a %s that costs %d deployment points\n", f->name, f->class, f->cost);
 }
 
-struct node * heapStruct(char *a, int b) {
+void print_list(struct operator *o) {
+  while(o) {
+    returnStruct(o);
+    o = o->next;
+  }
+}
 
-  struct node *n = malloc(sizeof(struct node));
+struct operator * heapStruct(char *a, char *b, int c) {
 
-  n->s = a;
-  n->i = b;
+  struct operator *n = malloc(sizeof(struct operator));
 
+  n->name = a;
+  n->class = b;
+  n->cost = c;
+  n->next = NULL;
   return n;
 }
 
-void print_list(struct node *) {
-
+struct operator * insert_front(struct operator *front, char *a, char *b, int c) {
+  struct operator *newop = heapStruct(a,b,c);
+  newop->next = front;
+  return newop;
 }
 
-struct node * insert_front(struct node *, int) {
-}
-
-struct node * free_list(struct node *) {
-
+struct operator * free_list(struct operator *) {
+  while(c->next) {
+    free_list(c->next);
+  }
+  free(c->name);
+  free(c->class);
+  free(c-> cost);
 }
 
 int main() {
-  struct node * hi1 = heapStruct("Tear of the Goddess", 400);
-  returnStruct(hi1);
+  struct operator *W = heapStruct("W", "Splash Sniper", 26);
+  struct operator *Ines = insert_front(W,"Ines", "Reaper", 21);
+  struct operator *Rosmontis = insert_front(Ines,"Rosmontis", "Bombardier", 23);
 
-  struct node * hi2 = heapStruct("Long Sword", 350);
-  returnStruct(hi2);
+  print_list(Rosmontis);
+  free_list(Rosmontis);
+  return 0;
 }

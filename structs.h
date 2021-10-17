@@ -1,9 +1,11 @@
-void returnStruct(struct node *f);
+int main();
 
-struct node * heapStruct(char *a, int b);
+void returnStruct(struct operator *o);
 
-void print_list(struct node *);
+struct operator * heapStruct(char *a, char *b, int c);
 
-struct node * insert_front(struct node *, int);
+void print_list(struct operator *o);
 
-struct node * free_list(struct node *);
+struct operator * insert_front(struct operator *front, char *a, char *b, int c);
+
+struct operator * free_list(struct operator *);
