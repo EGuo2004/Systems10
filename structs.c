@@ -46,7 +46,7 @@ struct operator * free_list(struct operator *o) {
     free_list(o->next);
   }
   //free(o->name);
-  free(o->class);
+  //free(o->class);
   free(o);
 }
 
