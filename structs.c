@@ -12,7 +12,7 @@ struct operator {
 };
 
 void returnStruct(struct operator *o) {
-  printf("%s is a %s that costs %d deployment points\n", f->name, f->class, f->cost);
+  printf("%s is a %s that costs %d deployment points\n", o->name, o->class, o->cost);
 }
 
 void print_list(struct operator *o) {
@@ -39,13 +39,13 @@ struct operator * insert_front(struct operator *front, char *a, char *b, int c) 
   return newop;
 }
 
-struct operator * free_list(struct operator *) {
-  while(c->next) {
-    free_list(c->next);
+struct operator * free_list(struct operator *o) {
+  while(o->next) {
+    free_list(o->next);
   }
-  free(c->name);
-  free(c->class);
-  free(c-> cost);
+  free(o->name);
+  free(o->class);
+  free(o-> cost);
 }
 
 int main() {
