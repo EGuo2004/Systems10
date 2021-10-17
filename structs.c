@@ -5,12 +5,24 @@
 struct operator;
 
 struct operator {
-  char * name;
-  char * class;
+  char *name;
+  char *class;
   int cost;
   struct operator *next;
 };
 
+struct operator * heapStruct(char *a, char *b, int c) {
+
+  struct operator *n = malloc(sizeof(struct operator));
+
+  n->name =  malloc(strlen(a));
+  strcpy(n->name,a);
+  n->class = malloc(strlen(b));
+  strcpy(n->class,b);
+  n->cost = c;
+  n->next = NULL;
+  return n;
+}
 void returnStruct(struct operator *o) {
   printf("%s is a %s that costs %d deployment points\n", o->name, o->class, o->cost);
 }
@@ -20,17 +32,6 @@ void print_list(struct operator *o) {
     returnStruct(o);
     o = o->next;
   }
-}
-
-struct operator * heapStruct(char *a, char *b, int c) {
-
-  struct operator *n = malloc(sizeof(struct operator));
-
-  n->name = a;
-  n->class = b;
-  n->cost = c;
-  n->next = NULL;
-  return n;
 }
 
 struct operator * insert_front(struct operator *front, char *a, char *b, int c) {
