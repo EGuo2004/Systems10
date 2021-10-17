@@ -42,12 +42,12 @@ struct operator * insert_front(struct operator *front, char *a, char *b, int c) 
 }
 
 struct operator * free_list(struct operator *o) {
-  while(o->next) {
+  if(o->next) {
     free_list(o->next);
   }
-  //free(o->name);
-  //free(o->class);
-  //free(o);
+  free(o->name);
+  free(o->class);
+  free(o);
 }
 
 int main() {
