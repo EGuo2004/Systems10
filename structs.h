@@ -1,5 +1,3 @@
-int main();
-
 void returnStruct(struct operator *o);
 
 struct operator * heapStruct(char *a, char *b, int c);
