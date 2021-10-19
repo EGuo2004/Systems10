@@ -49,3 +49,25 @@ struct operator * free_list(struct operator *o) {
   free(o->class);
   free(o);
 }
+
+struct operator * remove_node(struct operator *front, int data) {
+  struct operator *temp = front;
+  struct operator *next;
+  if(front->cost == data) {
+    temp = front->next;
+    free(front);
+    return temp;
+  }
+  while(front->next) {
+    next = front->next;
+    if(next->cost == data) {
+      front->next = next->next;
+      free(next);
+      return front;
+    } else {
+    front = front->next; 
+    }
+  }
+  return front;
+}
+
